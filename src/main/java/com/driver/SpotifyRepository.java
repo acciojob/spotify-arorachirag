@@ -38,7 +38,7 @@ public class SpotifyRepository {
     }
 
     public User createUser(String name, String mobile) {
-        User user = new User(name,mobile);
+        User user=new User(name,mobile);
         users.add(user);
 
         userPlaylistMap.put(user,new ArrayList<>());
@@ -46,16 +46,14 @@ public class SpotifyRepository {
     }
 
     public Artist createArtist(String name) {
-
-        Artist artist = new Artist(name);
+        Artist artist=new Artist(name);
         artists.add(artist);
-
         artistAlbumMap.put(artist,new ArrayList<>());
+
         return artist;
     }
 
     public Album createAlbum(String title, String artistName) {
-    // Artist does not exists
         Artist artist=null;
         for(Artist artist1:artists){
             if(artist1.getName().equals(artistName)){
@@ -77,7 +75,6 @@ public class SpotifyRepository {
     }
 
     public Song createSong(String title, String albumName, int length) throws Exception{
-
         Album album=null;
         for(Album album1:albums){
             if(album1.getTitle().equals(albumName)){
@@ -97,10 +94,10 @@ public class SpotifyRepository {
         songLikeMap.put(song,new ArrayList<>());
 
         return song;
+
     }
 
     public Playlist createPlaylistOnLength(String mobile, String title, int length) throws Exception {
-
         User user=null;
         for(User user1:users){
             if(user1.getMobile().equals(mobile)){
@@ -129,6 +126,7 @@ public class SpotifyRepository {
 
 
         return playlist;
+
     }
 
     public Playlist createPlaylistOnName(String mobile, String title, List<String> songTitles) throws Exception {
